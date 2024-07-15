@@ -16,7 +16,9 @@
           .text((d) => (d + " USD"))
           // Add your code below this line
     
-    
+          .style("color", (d) => {
+            return d < 20 ? "red" : "green"
+          });
     
           // Add your code above this line
       </script>
