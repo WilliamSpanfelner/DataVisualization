@@ -19,7 +19,9 @@
     
         svg.selectAll("rect")
            // Add your code below this line
-    
+           .data(dataset)
+           .enter()
+           .append("rect", (d) => d)
     
     
            // Add your code above this line
