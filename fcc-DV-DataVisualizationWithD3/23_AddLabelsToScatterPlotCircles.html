@@ -42,8 +42,9 @@
          .enter()
          .append("text")
          // Add your code below this line
-  
-  
+         .attr("x", (d) => d[0] + 5)
+         .attr("y", (d) => h - d[1])  // It is as though the data from these 2 manipulations are now part of the dataset
+         .text((d) => (d[0] + ", " + d[1]))
   
          // Add your code above this line
     </script>
