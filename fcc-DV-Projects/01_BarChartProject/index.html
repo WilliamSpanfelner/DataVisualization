@@ -36,10 +36,10 @@
                 svg.selectAll("rect")
                    .data(barDataset)
                    .enter()
-                   .append("rect", (d) => d)
+                   .append("rect")
+                   .attr("x", (d, i) => i * 30)
                    .attr("width", 25)
                    .attr("height", 100)
-                   .attr("x", 0)
                    .attr("y", 0);
 
 
