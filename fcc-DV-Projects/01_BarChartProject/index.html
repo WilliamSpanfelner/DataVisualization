@@ -51,11 +51,19 @@
             createChartFrom(dataset);
         }
 
+        const createChartFrom = (array) => {
+            const w = 512;
+            const h = 512;
+            const padding = 60;
+            
+            const title = d3.select("h1").attr("id", "title");
+        }
+
         const w = 512;
         const h = 512;
         const padding = 60;
 
-        const title = d3.select("h1").attr("id", "title");
+        
         
         const svg = d3.select("body")
                       .append("svg")
