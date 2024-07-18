@@ -41,6 +41,13 @@
             }
         }
 
+        const createDatasetFrom = (obj) => {
+            const dataset = obj.data;
+            console.log(`dataset: ${dataset}`);
+            console.log(`dataset date: ${dataset[0][0]} value: ${dataset[0][1]}`);
+            createChartFrom(dataset);
+        }
+
         const w = 512;
         const h = 512;
         const padding = 60;
