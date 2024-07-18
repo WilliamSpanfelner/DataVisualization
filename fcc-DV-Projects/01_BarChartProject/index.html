@@ -23,6 +23,24 @@
             ];
         
         const barDataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+        
+        /**
+        * Fetches data and calls createDataset with that data.
+        * Prints errors to console if unsuccessful
+        */
+        const fetchGDPData = async () => {
+            const dataURL = "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json";
+            const request = new Request(dataURL);
+            try {
+                const response = await fetch(request);
+                const jsonData = await response.json();
+                createDatasetFrom(jsonData);
+            } catch (err) {
+                console.log(err);
+                alert("Data not found");
+            }
+        }
+
         const w = 512;
         const h = 512;
         const padding = 60;
