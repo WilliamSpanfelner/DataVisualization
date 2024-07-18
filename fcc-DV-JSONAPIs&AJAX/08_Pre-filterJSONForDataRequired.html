@@ -42,7 +42,8 @@
               let json = JSON.parse(req.responseText);
               let html = "";
               // Add your code below this line
-      
+              
+                json = json.filter((val) => val.id !== 1);
       
               // Add your code above this line
                json.forEach(function(val) {
