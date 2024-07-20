@@ -1176,17 +1176,16 @@
             ]
             }
             
-        const createChartFrom = (array) => {
-            const w = 512;
-            const h = 512;
-            const padding = 60;
+        const w = 1024;
+        const h = 512;
+        const padding = 60;
             
-            const title = d3.select("h1").attr("id", "title");
+        const title = d3.select("h1").attr("id", "title");
 
-            const svg = d3.select("body")
-                      .append("svg")
-                      .attr("width", w)
-                      .attr("height", h);
+        const svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", w)
+                    .attr("height", h);
 
                 svg.append("rect")
                    .attr("width", 5)
@@ -1203,11 +1202,11 @@
                    .attr("y", (d) => h - d[1] * 3)
                    .attr("width", 25)
                    .attr("height", (d, i) => d * 3);
-        }
+        
 
-        const w = 512;
-        const h = 512;
-        const padding = 60;
+        // const w = 512;
+        // const h = 512;
+        // const padding = 60;
 
     </script>
 </body>
