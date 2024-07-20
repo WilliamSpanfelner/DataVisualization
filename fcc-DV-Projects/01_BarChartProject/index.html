@@ -1182,6 +1182,13 @@
             
         const title = d3.select("h1").attr("id", "title");
 
+        const xScale = d3.scaleTime()
+                         .domain(dataset.data.map(d => {
+                            const parseTime = d3.utcParse("%Y-%m-%d");
+                            return parseTime(d[0]);
+                         }))
+                         .range([padding, w - padding]);
+
         const svg = d3.select("body")
                     .append("svg")
                     .attr("width", w)
