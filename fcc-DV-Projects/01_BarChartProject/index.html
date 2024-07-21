@@ -1214,6 +1214,16 @@
                    .attr("width", 25)
                    .attr("height", (d, i) => d * 3);
         
+                // Add x- & y-axes to svg
+                svp.append("g")
+                   .attr("id", "x-axis")
+                   .attr("transform", "translate(0, " + (h - padding) + ")") 
+                   .call(xAxis);
+                   
+                svg.append("g")
+                   .attr("id", "y-axis")
+                   .attr("transform", "translate(" + padding + ", 0)")
+                   .call(yAxis);
 
         // const w = 512;
         // const h = 512;
