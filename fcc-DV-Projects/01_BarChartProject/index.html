@@ -1181,6 +1181,10 @@
         const padding = 60;
             
         const title = d3.select("h1").attr("id", "title");
+        
+        // Find min & max date values for x-axis domain
+        const minDate = d3.min(dataset.data, d => d[0]);
+        const maxDate = d3.max(dataset.data, d => d[0]);
 
         const xScale = d3.scaleTime()  // FIXME: x-axis not displaying correctly
                          .domain(dataset.data.map(d => {
