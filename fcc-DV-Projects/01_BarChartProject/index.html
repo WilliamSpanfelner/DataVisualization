@@ -1201,12 +1201,12 @@
                     .append("svg")
                     .attr("width", w)
                     .attr("height", h);
-
+                    
                 svg.append("rect")
                    .attr("width", 5)
-                   .attr("height", dataset.data[0][1])
-                   .attr("x", 0)
-                   .attr("y", h - dataset.data[0][1]);
+                   .attr("height", h - padding - yScale(dataset.data[0][1]))
+                   .attr("x", padding)
+                   .attr("y", yScale(dataset.data[0][1]));
 
 
                 svg.selectAll("rect")
