@@ -1231,7 +1231,9 @@
            .attr("class", "bar")
            .attr("data-date", d => d[0]) // Assign data-date property to data
            .attr("data-gdp", d => d[1])  // Assign data-gdp property to data
-           
+           .attr("width", barWidth)      // Give each bar a width as calculated
+           .attr("height", d => h - padding - yScale(d[1])) // Get a scaled height for each bar
+
                    .attr("x", padding)
                    .attr("y", yScale(dataset.data[0][1]));
 
