@@ -1233,8 +1233,9 @@
            .attr("data-gdp", d => d[1])  // Assign data-gdp property to data
            .attr("width", barWidth)      // Give each bar a width as calculated
            .attr("height", d => h - padding - yScale(d[1])) // Get a scaled height for each bar
+           .attr("x", (d, i) => i * barWidth)  // Give an x position to each bar based on its element index
+           .attr("transform", `translate(${padding + 1}, 0)`)  // Translate the x position to account for padding
 
-                   .attr("x", padding)
                    .attr("y", yScale(dataset.data[0][1]));
 
 
