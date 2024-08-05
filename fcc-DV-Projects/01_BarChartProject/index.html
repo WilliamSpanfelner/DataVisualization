@@ -1223,11 +1223,15 @@
            .attr("id", "y-axis")
            .attr("transform", `translate(${padding}, 0)`)
            .call(yAxis);
-
-
-                svg.append("rect")
-                   .attr("width", 5)
-                   .attr("height", h - padding - yScale(dataset.data[0][1]))
+           
+        svg.selectAll("rect")
+           .data(barDataset)
+           .enter()
+           .append("rect")
+           .attr("class", "bar")
+           .attr("data-date", d => d[0]) // Assign data-date property to data
+           .attr("data-gdp", d => d[1])  // Assign data-gdp property to data
+           
                    .attr("x", padding)
                    .attr("y", yScale(dataset.data[0][1]));
 
