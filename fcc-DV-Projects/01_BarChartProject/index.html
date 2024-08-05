@@ -1223,7 +1223,8 @@
            .attr("id", "y-axis")
            .attr("transform", `translate(${padding}, 0)`)
            .call(yAxis);
-           
+        
+        // Add bars corresponding to date/value pairs   
         svg.selectAll("rect")
            .data(barDataset)
            .enter()
