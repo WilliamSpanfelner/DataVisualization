@@ -1192,8 +1192,10 @@
                          .domain([minDate, maxDate])
                          .range([padding, w - padding])
 
+        const maxGDPValue = d3.max(barDataset, d => d[1]);                 
+
         const yScale = d3.scaleLinear()
-                         .domain([0, d3.max(dataset.data, (d) => d[1])])
+                         .domain([0, maxGDPValue])
                          .range([h - padding, padding])
 
         const svg = d3.select("body")
