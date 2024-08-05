@@ -1183,17 +1183,14 @@
             
         const title = d3.select("h1").attr("id", "title");
         
-        // Find min & max date values for x-axis domain
+        // Set min & max date values for x-axis domain
         const dataItems = barDataset.length - 1;
         const minDate = new Date(barDataset[0][0]);
         const maxDate = new Date(barDataset[dataItems][0]);
 
-        const xScale = d3.scaleTime()  // FIXME: x-axis not displaying correctly
-                         .domain(dataset.data.map(d => {
-                            const parseTime = d3.utcParse("%Y-%m-%d");
-                            return parseTime(d[0]);
-                         }))
-                         .range([padding, w - padding]);
+        const xScale = d3.scaleUtc()
+                         .domain([minDate, maxDate])
+                         .range([padding, w - padding])
 
         const yScale = d3.scaleLinear()
                          .domain([0, d3.max(dataset.data, (d) => d[1])])
