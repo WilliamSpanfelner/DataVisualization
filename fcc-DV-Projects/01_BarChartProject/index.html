@@ -1207,8 +1207,11 @@
                     .append("svg")
                     .attr("width", w)
                     .attr("height", h)
-                    .attr("viewBox", [0, 0, w, h]);
+                    .attr("viewBox", [0, 0, w, h])
                     .style("background-color", "green");
+
+        const xAxis = d3.axisBottom(xScale);
+        const yAxis = d3.axisLeft(yScale);
 
                 svg.append("rect")
                    .attr("width", 5)
