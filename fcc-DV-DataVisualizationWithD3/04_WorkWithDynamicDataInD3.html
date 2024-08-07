@@ -15,7 +15,13 @@
           .append("h2")
           // Add your code below this line
     
-          .text((d) => d + "USD");
+          .text((d) => d + "USD")              // View each element with some appended text
+
+          .append("h3")
+          .text((d) => d)                       // View each element with no embellishments
+
+          .append("h4")
+          .text((d) => `dataset item: ${d}`)    // View each element as a template literal
     
           // Add your code above this line
       </script>
