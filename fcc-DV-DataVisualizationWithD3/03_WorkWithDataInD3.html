@@ -13,10 +13,10 @@
     
         d3.select("body")
           .selectAll("h2")
-          .data(dataset)
+          .data(dataset)      // access the dataset
           .enter()
-          .append("h2")
-          .text("New Title");
+          .append("h2")       // for each item of the array append an element (h2 in this case)
+          .text("New Title"); // Add content to the h2 element
     
         // Add your code above this line
       </script>    
