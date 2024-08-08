@@ -26,7 +26,7 @@
        .attr("y", (d, i) => {
          // Add your code below this line
 
-        return h - d * 3;
+          return h - d * 3;  // The top left corner of an SVG represents x = 0 , y = 0.  Positive x values increase to the right and positive y values increase downwards.  The height of an svg needs to be accounted for in order for a bar chart to appear the right way up.  y = heightOfSVG - heightOfBar In this case y = 100 - d * 3 where d represents individual data points.
 
          // Add your code above this line
        })
