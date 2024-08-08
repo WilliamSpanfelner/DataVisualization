@@ -27,15 +27,15 @@
          .attr("height", (d, i) => 3 * d)
          .attr("fill", "navy");
   
-      svg.selectAll("text")
+      svg.selectAll("text")                     // Labels can be produced by going over the dataset again
          .data(dataset)
          .enter()
          // Add your code below this line
   
-        .append("text")
-        .attr("x", (d, i) => i * 30)
-        .attr("y", (d, i) => h - 3 * d - 3)
-        .text((d) => d);
+        .append("text")                         // First create a text element
+        .attr("x", (d, i) => i * 30)            // Calculate x position as above
+        .attr("y", (d, i) => h - 3 * d - 3)     // Y value should be 3pxs above bar
+        .text((d) => d);                        // Now get all the values.
   
   
          // Add your code above this line
