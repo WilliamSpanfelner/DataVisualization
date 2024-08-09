@@ -34,8 +34,8 @@
          .attr("class", "bar")
          // Add your code below this line
   
-         .append("title")
-         .text((d) => d)
+         .append("title")                   // Appends a title element to each rect
+         .text((d) => `Value is: ${d}`)     // Adds text and a dataset value to the content of the element added
   
          // Add your code above this line
   

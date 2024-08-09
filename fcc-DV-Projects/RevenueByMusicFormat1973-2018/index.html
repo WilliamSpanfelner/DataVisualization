@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue By Music Format 1973 - 2018</title>
+</head>
+<body>
+    <script>
+        data = FileAttachment("./data.csv").csv()
+        .then((data) =>
+            data.map(({ Format, Year, ["Revenue (Inflation Adjusted)"]: Revenue}) => ({
+                name: Format,
+                year: +Year,
+                value: +Revenue 
+            }))
+        )
+        
+        const w = 928;
+        const h = 500;
+        const marginTop = 20;
+        const marginRight = 30;
+        const marginBottom = 30;
+        const marginLeft = 30;
+
+        // Create scales
+        const xScale = d3.scaleBand()
+                         .domain(data.map(d => d.year))
+                         .rangeRound([marginLeft, w - marginRight]);
+    
+    </script>
+    
+</body>
+</html>
