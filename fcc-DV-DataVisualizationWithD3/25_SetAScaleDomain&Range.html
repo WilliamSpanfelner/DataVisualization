@@ -9,8 +9,8 @@
     <script>
       // Add your code below this line
       const scale = d3.scaleLinear();
-        scale.domain([250, 500])
-             .range([10, 150])
+        scale.domain([250, 500])  // Domain represents actual range of data values
+             .range([10, 150])    // The range specifies the range available in the SVG or the area of doc
   
       // Add your code above this line
       const output = scale(50);
