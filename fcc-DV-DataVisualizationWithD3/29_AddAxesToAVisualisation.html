@@ -55,7 +55,7 @@
   
       const xAxis = d3.axisBottom(xScale);
       // Add your code below this line
-      const yAxis = d3.axisLeft(yScale);
+      const yAxis = d3.axisLeft(yScale);  // Create axis with appropriate scale
       // Add your code above this line
   
       svg.append("g")
@@ -64,7 +64,7 @@
   
       // Add your code below this line
   
-        svg.append("g")
+        svg.append("g") // append a group (g)
         .attr("transform", "translate(" + padding + ", 0)")
         .call(yAxis);
   
