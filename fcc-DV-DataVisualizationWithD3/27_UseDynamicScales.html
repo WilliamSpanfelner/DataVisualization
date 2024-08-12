@@ -36,7 +36,7 @@
   
       const yScale = d3.scaleLinear()
                     .domain([0, d3.max(dataset, (d) => d[1])])
-                    .range([h - padding, padding]);
+                    .range([h - padding, padding]);  // Accounts for downward increasing positive values where y=0 in the SVG top left corner
   
   
       // Add your code above this line
