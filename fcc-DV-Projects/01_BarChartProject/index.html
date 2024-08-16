@@ -1185,6 +1185,7 @@
         const mouseover = function(d) {
             const barDate = d3.select(this).attr("data-date");
             const barYear = barDate.split("-")[0];
+            const barQtr = new Date(barDate).getMonth() % 12 / 3 + 1;
         }
 
         // Create chart title
