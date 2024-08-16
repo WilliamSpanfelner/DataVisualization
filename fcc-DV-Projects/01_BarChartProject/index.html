@@ -1206,18 +1206,17 @@
 
         const xScale = d3.scaleUtc()
                          .domain([minDate, maxDate])
-                         .range([padding, w - padding])
+                         .range([padding, w - padding]);
 
-        // Find max GDP value from dataset  
-        const maxGDPValue = d3.max(barDataset, d => d[1]);                 
-
-        const yScale = d3.scaleLinear()
-                         .domain([0, maxGDPValue])
-                         .range([h - padding, padding])
-        
         //Compute the ideal width of each bar by subtracting double padding 
         // from the svg width and dividing the result by the number of datapoints.
         const barWidth = ((w - padding * 2) / barDataset.length);
+
+        // Find max GDP value from dataset  
+        const maxGDPValue = d3.max(barDataset, d => d[1]);                 
+        const yScale = d3.scaleLinear()
+                         .domain([0, maxGDPValue])
+                         .range([h - padding, padding]);
 
         const xAxis = d3.axisBottom(xScale);
         const yAxis = d3.axisLeft(yScale);
