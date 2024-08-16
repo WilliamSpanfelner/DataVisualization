@@ -1190,6 +1190,14 @@
                           .attr("id", "tooltip")
                           .style("position", "absolute")
                           .style("visibility", "hidden");
+                          
+        // Create svg with defined dimensions
+        const svg = d3.select("body")
+                      .append("svg")
+                      .attr("width", w)
+                      .attr("height", h)
+                      .attr("viewBox", [0, 0, w, h])
+                      .style("background-color", "green");
         
         // Set min & max date values for x-axis domain
         const dataItems = barDataset.length - 1;
@@ -1210,13 +1218,6 @@
         //Compute the ideal width of each bar by subtracting double padding 
         // from the svg width and dividing the result by the number of datapoints.
         const barWidth = ((w - padding * 2) / barDataset.length);
-
-        const svg = d3.select("body")
-                    .append("svg")
-                    .attr("width", w)
-                    .attr("height", h)
-                    .attr("viewBox", [0, 0, w, h])
-                    .style("background-color", "green");
 
         const xAxis = d3.axisBottom(xScale);
         const yAxis = d3.axisLeft(yScale);
