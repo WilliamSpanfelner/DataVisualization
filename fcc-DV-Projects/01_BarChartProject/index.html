@@ -1183,7 +1183,8 @@
         
         // Create chart title
         const title = d3.select("body").append("h1").attr("id", "title").text("United States GDP");
-
+        
+        // Create tooltip that will display extra information when hovering over a chart bar
         const tooltip = d3.select("body")
                           .append("div")
                           .attr("id", "tooltip")
