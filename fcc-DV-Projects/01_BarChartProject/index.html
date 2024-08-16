@@ -1187,6 +1187,9 @@
             const barYear = barDate.split("-")[0];
             const barQtr = new Date(barDate).getMonth() % 12 / 3 + 1;
             const barGDP = d3.select(this).attr("data-gdp");
+            return tooltip.attr("data-date", barDate)
+                          .html(`${barYear} Q${barQtr}<br>$${barGDP} Billion`)
+                          .style("visibility", "visible");
         }
 
         // Create chart title
