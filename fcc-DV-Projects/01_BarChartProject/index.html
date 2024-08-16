@@ -1192,6 +1192,12 @@
                           .style("visibility", "visible");
         }
 
+        // Create mousemove function that positions div element
+        const mousemove = function(d) {
+            tooltip.style("top", `${padding * 7}px`)
+                   .style("left", `${event.pageX + 20}px`)
+        }
+
         // Create chart title
         const title = d3.select("body").append("h1").attr("id", "title").text("United States GDP");
         
