@@ -70,8 +70,12 @@
         .append("text")
         .attr("class", "x-label")
         .attr("text-anchor", "end")
-        .text("x-axis label")
-  
+        .text("x-axis label");
+
+     // Add y-axis label
+     svg.append("g")
+        .attr("transform", "translate(85, 60)")
+        
     </script>
     
 </body>
