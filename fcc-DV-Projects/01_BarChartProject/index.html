@@ -1183,6 +1183,10 @@
         
         // Create chart title
         const title = d3.select("body").append("h1").attr("id", "title").text("United States GDP");
+
+        const tooltip = d3.select("body")
+                          .append("div")
+                          .attr("id", "tooltip")
         
         // Set min & max date values for x-axis domain
         const dataItems = barDataset.length - 1;
