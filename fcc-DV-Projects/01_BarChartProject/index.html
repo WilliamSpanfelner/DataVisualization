@@ -1272,6 +1272,24 @@
            .on("mousemove", mousemove)
            .on("mouseout", mouseout);
 
+           // add x-axis label
+           svg.append("g")
+              .attr("transform", `translate(${w - padding}, ${h - padding / 3})`)
+              .append("text")
+              .attr("class", "x-label")
+              .attr("text-anchor", "end")
+              .text("More Information: http://www.bea.gov/national/pdf/nipaguid.pdf");
+
+           // add y-axis label
+           svg.append("g")
+              .attr("transform", "translate(85, 60)")
+              .append("text")
+              .attr("class", "y-label")
+              .attr("text-anchor", "end")
+              .attr("transform", "rotate(-90)")
+              .text("Gross Domestic Product")
+              .style("fill", "yellow");
+
                 // svg.append("rect")
                 //    .attr("width", 5)
                 //    .attr("height", h - padding - yScale(dataset.data[0][1]))
