@@ -1268,7 +1268,9 @@
            .attr("transform", `translate(${padding + 1}, 0)`)  // Translate the x position to account for padding
            .attr("y", (d) => yScale(d[1]))
            .attr("fill", "yellow")
-
+           .on("mouseover", mouseover)
+           .on("mousemove", mousemove)
+           .on("mouseout", mouseout);
 
                 // svg.append("rect")
                 //    .attr("width", 5)
