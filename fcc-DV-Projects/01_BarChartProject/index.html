@@ -1183,7 +1183,8 @@
         
         // Create mouseover function to display tooltip
         const mouseover = function(d) {
-            const date = d3.select(this).attr("data-date");
+            const barDate = d3.select(this).attr("data-date");
+            const barYear = barDate.split("-")[0];
         }
 
         // Create chart title
