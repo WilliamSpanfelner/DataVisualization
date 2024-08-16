@@ -1186,6 +1186,7 @@
             const barDate = d3.select(this).attr("data-date");
             const barYear = barDate.split("-")[0];
             const barQtr = new Date(barDate).getMonth() % 12 / 3 + 1;
+            const barGDP = d3.select(this).attr("data-gdp");
         }
 
         // Create chart title
