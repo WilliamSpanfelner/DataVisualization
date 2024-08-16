@@ -1181,6 +1181,11 @@
         const h = 512;
         const padding = 60;
         
+        // Create mouseover function to display tooltip
+        const mouseover = function(d) {
+            const date = d3.select(this).attr("data-date");
+        }
+
         // Create chart title
         const title = d3.select("body").append("h1").attr("id", "title").text("United States GDP");
         
