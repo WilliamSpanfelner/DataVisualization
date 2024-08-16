@@ -75,7 +75,10 @@
      // Add y-axis label
      svg.append("g")
         .attr("transform", "translate(85, 60)")
-        
+        .append("text")
+        .attr("class", "y-axis")
+        .attr("text-anchor", "end")
+
     </script>
     
 </body>
