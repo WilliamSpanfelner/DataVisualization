@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30_Basic Tooltip</title>
+</head>
+<body>
+
+    <script>
+        d3.select("body")                     
+        .style("background-color", "coral")
+        .append("h1")                       
+        .text("Learning D3")                
+        .style("text-align", "center")
+        .style("background-color", "steelblue")
+        .style("color", "yellow");
+
+        // Create a tooltip
+        var tooltip = d3.select("body")
+                        .append("div")
+                        .style("position", "absolute")
+                        .style("visibility", "hidden")
+                        .style("width", "7em")
+                        .style("background-color", "lightgrey")
+                        .style("opacity", "0.8")
+                        .style("border-radius", "0.5em")
+                        .style("box-shadow", "0px 0px 10px 2px #838383")
+                        .style("padding", "1em")
+                        .style("text-align", "center")
+
+        // Create an svg area
+        var svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", 200)
+                    .attr("height", 100)
+
+        // Append a shape
+        svg.append("circle")
+        .attr("class", "trip")
+        .attr("cx", 100)
+        .attr("cy", 50)
+        .attr("r", 40)
+        .attr("fill", "#69b3a2")
+
+        svg.append("rect")
+        .attr("class", "trip")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", 25)
+        .attr("height", 100)
+        .attr("fill", "#69b3a2")
+                        
+        // Trip the tooltip to show data
+        d3.selectAll(".trip")
+        .on("mouseover", () => {
+            console.log("over"); 
+            return tooltip.style("visibility", "visible").text("1992 Q1 $6,380.8 Billion");
+        })
+        .on("mousemove", () => {
+            console.log("move", `${event.pageY}px`, `${event.pageX}px`); 
+            return tooltip.style("top", `${event.pageY-20}px`).style("left", `${event.pageX+20}px`);
+        })
+        .on("mouseout", () => {
+            console.log("out"); 
+            return tooltip.style("visibility", "hidden");
+        });
+
+    </script>
+    
+</body>
+</html>
