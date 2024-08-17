@@ -1220,59 +1220,67 @@
                       .attr("height", h)
                       .attr("viewBox", [0, 0, w, h])
                       .style("background-color", "green");
+
+        // Get data
+        d3.json(
+        "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json"
+        ).then((d) => {
+        const barDataset = d.data;             
         
-        // Set min & max date values for x-axis domain
-        const dataItems = barDataset.length - 1;
-        const minDate = new Date(barDataset[0][0]);
-        const maxDate = new Date(barDataset[dataItems][0]);
+            // Set min & max date values for x-axis domain
+            const dataItems = barDataset.length - 1;
+            const minDate = new Date(barDataset[0][0]);
+            const maxDate = new Date(barDataset[dataItems][0]);
 
-        const xScale = d3.scaleUtc()
-                         .domain([minDate, maxDate])
-                         .range([padding, w - padding]);
+            const xScale = d3.scaleUtc()
+                            .domain([minDate, maxDate])
+                            .range([padding, w - padding]);
 
-        //Compute the ideal width of each bar by subtracting double padding 
-        // from the svg width and dividing the result by the number of datapoints.
-        const barWidth = ((w - padding * 2) / barDataset.length);
+            //Compute the ideal width of each bar by subtracting double padding 
+            // from the svg width and dividing the result by the number of datapoints.
+            const barWidth = ((w - padding * 2) / barDataset.length);
 
-        // Find max GDP value from dataset  
-        const maxGDPValue = d3.max(barDataset, d => d[1]);                 
-        const yScale = d3.scaleLinear()
-                         .domain([0, maxGDPValue])
-                         .range([h - padding, padding]);
+            // Find max GDP value from dataset  
+            const maxGDPValue = d3.max(barDataset, d => d[1]);                 
+            const yScale = d3.scaleLinear()
+                            .domain([0, maxGDPValue])
+                            .range([h - padding, padding]);
 
-        const xAxis = d3.axisBottom(xScale);
-        const yAxis = d3.axisLeft(yScale);
-        
-        // Add x- & y-axes to svg
-        svp.append("g")
-           .attr("id", "x-axis")
-           .attr("transform", `translate(0, ${h - padding})`)
-           .call(xAxis);
-        
-        svg.append("g")
-           .attr("id", "y-axis")
-           .attr("transform", `translate(${padding}, 0)`)
-           .call(yAxis);
-        
-        // Add bars corresponding to date/value pairs   
-        svg.selectAll("rect")
-           .data(barDataset)
-           .enter()
-           .append("rect")
-           .attr("class", "bar")
-           .attr("data-date", d => d[0]) // Assign data-date property to data
-           .attr("data-gdp", d => d[1])  // Assign data-gdp property to data
-           .attr("width", barWidth)      // Give each bar a width as calculated
-           .attr("height", d => h - padding - yScale(d[1])) // Get a scaled height for each bar
-           .attr("x", (d, i) => i * barWidth)  // Give an x position to each bar based on its element index
-           .attr("transform", `translate(${padding + 1}, 0)`)  // Translate the x position to account for padding
-           .attr("y", (d) => yScale(d[1]))
-           .attr("fill", "yellow");
+            const xAxis = d3.axisBottom(xScale);
+            const yAxis = d3.axisLeft(yScale);
+            
+            // Add x- & y-axes to svg
+            svp.append("g")
+            .attr("id", "x-axis")
+            .attr("transform", `translate(0, ${h - padding})`)
+            .call(xAxis);
+            
+            svg.append("g")
+            .attr("id", "y-axis")
+            .attr("transform", `translate(${padding}, 0)`)
+            .call(yAxis);
+            
+            // Add bars corresponding to date/value pairs   
+            svg.selectAll("rect")
+            .data(barDataset)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("data-date", d => d[0]) // Assign data-date property to data
+            .attr("data-gdp", d => d[1])  // Assign data-gdp property to data
+            .attr("width", barWidth)      // Give each bar a width as calculated
+            .attr("height", d => h - padding - yScale(d[1])) // Get a scaled height for each bar
+            .attr("x", (d, i) => i * barWidth)  // Give an x position to each bar based on its element index
+            .attr("transform", `translate(${padding + 1}, 0)`)  // Translate the x position to account for padding
+            .attr("y", (d) => yScale(d[1]))
+            .attr("fill", "yellow");
 
-        d3.selectAll(".bar")
-          .on("mouseover", mouseover)
-          .on("mousemove", mousemove)
-          .on("mouseout", mouseout);
+            d3.selectAll(".bar")
+            .on("mouseover", mouseover)
+            .on("mousemove", mousemove)
+            .on("mouseout", mouseout);
+
+        });
 
            // add x-axis label
            svg.append("g")
