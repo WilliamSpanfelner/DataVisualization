@@ -1267,10 +1267,12 @@
            .attr("x", (d, i) => i * barWidth)  // Give an x position to each bar based on its element index
            .attr("transform", `translate(${padding + 1}, 0)`)  // Translate the x position to account for padding
            .attr("y", (d) => yScale(d[1]))
-           .attr("fill", "yellow")
-           .on("mouseover", mouseover)
-           .on("mousemove", mousemove)
-           .on("mouseout", mouseout);
+           .attr("fill", "yellow");
+
+        d3.selectAll(".bar")
+          .on("mouseover", mouseover)
+          .on("mousemove", mousemove)
+          .on("mouseout", mouseout);
 
            // add x-axis label
            svg.append("g")
