@@ -40,6 +40,14 @@
             const xScale = d3.scaleLinear()
                 .domain([minYear, maxYear])
                 .range([padding, w - padding]);
+
+            // Create & add x-axis
+            const xAxis = d3.axisBottom(xScale);
+            svg
+                .append("g")
+                .attr("id", "x-axis")
+                .attr("transform", `translate(0, ${h - padding})`)
+                .call(xAxis);
         }
     </script>
 </body>
