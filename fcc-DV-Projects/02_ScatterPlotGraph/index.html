@@ -16,6 +16,14 @@
         const title = d3.select("body").append("h1").attr("id", "title").text("Doping in Professional Bicycle Racing");
         const subtitle = d3.select("body").append("h2").attr("id", "subtitle").text("35 Fastest times up Alpe d'Huez");
 
+        // Create svg with defined dimensions
+        const svg = d3.select("body")
+                      .append("svg")
+                      .attr("width", w)
+                      .attr("height", h)
+                      .attr("viewBox", [0, 0, w, h])
+                      .style("background-color", "green");
+
         // Get data
         d3.json(
         "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json"
