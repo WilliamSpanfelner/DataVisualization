@@ -15,6 +15,14 @@
         // Create chart title & subtitle
         const title = d3.select("body").append("h1").attr("id", "title").text("Doping in Professional Bicycle Racing");
         const subtitle = d3.select("body").append("h2").attr("id", "subtitle").text("35 Fastest times up Alpe d'Huez");
+
+        // Get data
+        d3.json(
+        "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json"
+        ).then((d) => {
+            console.log(d.length, d[0].Year, d[0].Time); // Log number of data items, and x & y values
+            
+        }
     </script>
 </body>
 </html>
