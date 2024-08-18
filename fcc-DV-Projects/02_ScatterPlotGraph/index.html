@@ -35,6 +35,11 @@
             const maxYear = d3.max(data, d => d.Year);
             
             console.log(minYear, maxYear);
+
+            // Scale the data using domain & range
+            const xScale = d3.scaleLinear()
+                .domain([minYear, maxYear])
+                .range([padding, w - padding]);
         }
     </script>
 </body>
