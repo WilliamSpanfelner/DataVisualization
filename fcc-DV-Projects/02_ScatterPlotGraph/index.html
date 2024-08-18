@@ -29,7 +29,12 @@
         "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json"
         ).then((d) => {
             console.log(d.length, d[0].Year, d[0].Time); // Log number of data items, and x & y values
+
+            // Find domain for x-axis
+            const minYear = d3.min(data, d => d.Year);
+            const maxYear = d3.max(data, d => d.Year);
             
+            console.log(minYear, maxYear);
         }
     </script>
 </body>
