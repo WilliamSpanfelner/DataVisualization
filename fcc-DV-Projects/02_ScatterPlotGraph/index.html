@@ -44,6 +44,10 @@
                 .domain([minYear, maxYear])
                 .range([padding, w - padding]);
 
+            const yScale = d3.scaleLinear()
+                .domain([minTime, maxTime])
+                .range([h-padding, padding]);
+
             // Create & add x-axis
             const xAxis = d3.axisBottom(xScale);
             svg
