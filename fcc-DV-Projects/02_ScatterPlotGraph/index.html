@@ -68,6 +68,7 @@
                 .data(data)
                 .enter()
                 .append(circle)
+                .attr("class", "dot")
                 .attr("cx", (d) => xScale(d.Year))
                 .attr("cy", (d) => yScale(d.Time))
                 .attr("r", 5);
