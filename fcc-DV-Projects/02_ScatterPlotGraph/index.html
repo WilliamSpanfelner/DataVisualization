@@ -48,6 +48,11 @@
                 .attr("id", "x-axis")
                 .attr("transform", `translate(0, ${h - padding})`)
                 .call(xAxis);
+
+            // Find domain for y-axis 
+            const minTime = d3.min(data, (d) => d.Time);
+            const maxTime = d3.max(data, (d) => d.Time);
+
         }
     </script>
 </body>
