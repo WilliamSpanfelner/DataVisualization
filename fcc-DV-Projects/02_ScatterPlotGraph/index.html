@@ -48,7 +48,7 @@
                 .domain([minTime, maxTime])
                 .range([h-padding, padding]);
 
-            // Create & add x-axis
+            // Create & add x- & y-axis
             const xAxis = d3.axisBottom(xScale);
             svg
                 .append("g")
@@ -56,6 +56,11 @@
                 .attr("transform", `translate(0, ${h - padding})`)
                 .call(xAxis);
 
+            const yAxis = d3.axisLeft(yScale);
+            svg.append("g")
+               .attr("id", "y-axis")
+               .attr("transform", `translate(${padding}, 0)`)
+               call(yAxis);
         }
     </script>
 </body>
