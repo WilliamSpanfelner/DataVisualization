@@ -61,6 +61,16 @@
                .attr("id", "y-axis")
                .attr("transform", `translate(${padding}, 0)`)
                call(yAxis);
+
+            // Add data points
+            svg
+                .selectAll("circle")
+                .data(data)
+                .enter()
+                .append(circle)
+                .attr("cx", (d) => xScale(d.Year))
+                .attr("cy", (d) => yScale(d.Time))
+                .attr("r", 5);
         }
     </script>
 </body>
