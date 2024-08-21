@@ -31,8 +31,8 @@
             console.log(d.length, d[0].Year, d[0].Time); // Log number of data items, and x & y values
 
             // Find domain for x-axis
-            const minYear = d3.min(data, d => d.Year);
-            const maxYear = d3.max(data, d => d.Year);
+            const minYear = d3.min(data, d => new Date(`${d.Year}`));
+            const maxYear = d3.max(data, d => new Date(`${d.Year}`));
             // console.log(minYear, maxYear);            
             
             // Find domain for y-axis 
@@ -40,7 +40,7 @@
             const maxTime = d3.max(data, (d) => d.Time);
 
             // Scale the data using domain & range
-            const xScale = d3.scaleLinear()
+            const xScale = d3.scaleTime()
                 .domain([minYear, maxYear])
                 .range([padding, w - padding]);
 
