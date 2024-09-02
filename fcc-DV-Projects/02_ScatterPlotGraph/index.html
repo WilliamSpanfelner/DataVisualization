@@ -77,7 +77,7 @@
                 .append(circle)
                 .attr("class", "dot")
                 .attr("data-xvalue", (d) => d.Year)
-                .attr("data-yvalue", (d) => {d.Time
+                .attr("data-yvalue", (d) => {
                     const ft = d.Time.split(":");
                     const mins = ft[0];
                     const secs = ft[1];
