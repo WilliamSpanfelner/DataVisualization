@@ -77,7 +77,13 @@
                 .append(circle)
                 .attr("class", "dot")
                 .attr("data-xvalue", (d) => d.Year)
-                .attr("data-yvalue", (d) => d.Time)
+                .attr("data-yvalue", (d) => {d.Time
+                    const ft = d.Time.split(":");
+                    const mins = ft[0];
+                    const secs = ft[1];
+                    // console.log(`1970-01-01T20:${mins}:${secs}.000Z`);
+                    return `1970-01-01T20:${mins}:${secs}.000Z`;
+                })
                 .attr("cx", (d) => xScale(d.Year))
                 .attr("cy", (d) => yScale(d.Time))
                 .attr("r", 5);
