@@ -50,9 +50,9 @@
                 .domain([minYear, maxYear])
                 .range([padding, w - padding]);
 
-            const yScale = d3.scaleLinear()
+            const yScale = d3.scaleUtc()
                 .domain(timeExtent)
-                .range([h-padding, padding]);
+                .range([padding, h - padding]);
 
             // Create & add x- & y-axis
             const xAxis = d3.axisBottom(xScale);
