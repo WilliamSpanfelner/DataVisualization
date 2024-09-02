@@ -63,6 +63,7 @@
                 .call(xAxis);
 
             const yAxis = d3.axisLeft(yScale);
+            yAxis.ticks(null, "%M:%S");
             svg.append("g")
                .attr("id", "y-axis")
                .attr("transform", `translate(${padding}, 0)`)
