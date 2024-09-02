@@ -76,6 +76,7 @@
                 .enter()
                 .append(circle)
                 .attr("class", "dot")
+                .attr("fill", d => d.Doping ? "red" : "green")
                 .attr("data-xvalue", (d) => d.Year)
                 .attr("data-yvalue", (d) => {
                     const ft = d.Time.split(":");
