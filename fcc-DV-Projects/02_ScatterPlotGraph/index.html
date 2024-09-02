@@ -84,7 +84,10 @@
                     // console.log(`1970-01-01T20:${mins}:${secs}.000Z`);
                     return `1970-01-01T20:${mins}:${secs}.000Z`;
                 })
-                .attr("cx", (d) => xScale(d.Year))
+                .attr("cx", (d) => {
+                    // console.log(xScale(new Date(`${d.Year}-01-01`)));
+                    return xScale(new Date(`${d.Year}-01-01`));
+                })
                 .attr("cy", (d) => {
                     const ft = d.Time.split(":");
                     const mins = ft[0];
