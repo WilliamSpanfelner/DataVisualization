@@ -36,16 +36,22 @@
             // console.log(minYear, maxYear);            
             
             // Find domain for y-axis 
-            const minTime = d3.min(data, (d) => d.Time);
-            const maxTime = d3.max(data, (d) => d.Time);
+            // const minTime = d3.min(data, (d) => d.Time);
+            // const maxTime = d3.max(data, (d) => d.Time);
+            const timeExtent = d3.extext(data, (d) => {
+                const ft = d.Time.split(":"); // ft = finish time array
+                const mins = ft[0];
+                const secs = ft[1];
+                return new Date(`1970-01-01T20:${mins}:${secs}.000Z`);
+            });
 
             // Scale the data using domain & range
-            const xScale = d3.scaleTime()
+            const xScale = d3.scaleUtc()
                 .domain([minYear, maxYear])
                 .range([padding, w - padding]);
 
             const yScale = d3.scaleLinear()
-                .domain([minTime, maxTime])
+                .domain(timeExtent)
                 .range([h-padding, padding]);
 
             // Create & add x- & y-axis
