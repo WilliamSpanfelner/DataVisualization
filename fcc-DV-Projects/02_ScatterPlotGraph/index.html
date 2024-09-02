@@ -85,7 +85,13 @@
                     return `1970-01-01T20:${mins}:${secs}.000Z`;
                 })
                 .attr("cx", (d) => xScale(d.Year))
-                .attr("cy", (d) => yScale(d.Time))
+                .attr("cy", (d) => {
+                    const ft = d.Time.split(":");
+                    const mins = ft[0];
+                    const secs = ft[1];
+                    // console.log(yScale(new Date(`1970-01-01T20:${mins}:${secs}.000Z`)));
+                    return yScale(new Date(`1970-01-01T20:${mins}:${secs}.000Z`));
+                })
                 .attr("r", 5);
         }
     </script>
