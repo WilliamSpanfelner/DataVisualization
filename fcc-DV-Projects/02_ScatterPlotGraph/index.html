@@ -133,7 +133,24 @@
                 .attr("transform", "translate(30, 15)")
                 .style("fill", "white");
             
-            
+            svg
+                .select("#legend")
+                .attr("id", "legend-label-2")
+                .attr("transform", "translate(10, 40)")
+                .append("circle")
+                .attr("cx", 10)
+                .attr("cy", 10)
+                .attr("r", 5)
+                .style("fill", "red")
+                .style("stroke", "white")
+                .style("stroke-width", 2);
+
+            svg
+                .select("#legend-label-2")
+                .append("text")
+                .attr("transform", "translate(30, 15)")
+                .text("Riders with doping allegations")
+                .style("fill", "white");
         }
     </script>
 </body>
