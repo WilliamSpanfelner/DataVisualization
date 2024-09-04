@@ -125,6 +125,14 @@
                 .style("fill", "green")
                 .style("stroke", "white")
                 .style("stroke-width", 2);
+
+            svg
+                .select("#legend-label-1")
+                .append("text")
+                .text("No doping allegations")
+                .attr("transform", "translate(30, 15)")
+                .style("fill", "white");
+            
             
         }
     </script>
