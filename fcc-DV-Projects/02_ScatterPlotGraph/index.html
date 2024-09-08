@@ -121,17 +121,13 @@
                 .append("circle")
                 .attr("cx", 10)
                 .attr("cy", 10)
-                .attr("r", 5)
-                .style("fill", "green")
-                .style("stroke", "white")
-                .style("stroke-width", 2);
+                .attr("r", 5);  
 
             svg
                 .select("#legend-label-1")
                 .append("text")
                 .text("No doping allegations")
-                .attr("transform", "translate(30, 15)")
-                .style("fill", "white");
+                .attr("transform", "translate(30, 15)");
             
             svg
                 .select("#legend")
@@ -140,17 +136,13 @@
                 .append("circle")
                 .attr("cx", 10)
                 .attr("cy", 10)
-                .attr("r", 5)
-                .style("fill", "red")
-                .style("stroke", "white")
-                .style("stroke-width", 2);
+                .attr("r", 5);
 
             svg
                 .select("#legend-label-2")
                 .append("text")
                 .attr("transform", "translate(30, 15)")
-                .text("Riders with doping allegations")
-                .style("fill", "white");
+                .text("Riders with doping allegations");
         }
     </script>
 </body>
