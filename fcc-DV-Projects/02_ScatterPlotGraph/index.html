@@ -19,7 +19,7 @@
                           .append("div")
                           .style("position", "absolute")
                           .style("visibility", "hidden");
-                          
+
         // Create mouseover function to display tooltip
         const showTooltip = function(d) {
             const dotDate = d3.select(this).attr("data-xvalue");
@@ -47,17 +47,17 @@
 
         // Create svg with defined dimensions
         const svg = d3.select("body")
+                      .append("div")
                       .append("svg")
                       .attr("width", w)
                       .attr("height", h)
-                      .attr("viewBox", [0, 0, w, h])
-                      .style("background-color", "green");
+                      .attr("viewBox", [0, 0, w, h]);
 
         // Get data
         d3.json(
         "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json"
         ).then((d) => {
-            console.log(d.length, d[0].Year, d[0].Time); // Log number of data items, and x & y values
+            // console.log(d.length, d[0].Year, d[0].Time); // Log number of data items, and x & y values
 
             // Find domain for x-axis
             const minYear = d3.min(data, d => new Date(`${d.Year - 1}`));
@@ -113,9 +113,7 @@
                 .data(data)
                 .enter()
                 .append(circle)
-                // .attr("class", "dot")
                 .attr("class", d => d.Doping ? "dot allegations" : "dot clear")
-                // .attr("fill", d => d.Doping ? "red" : "green")
                 .attr("data-xvalue", (d) => d.Year)
                 .attr("data-yvalue", (d) => {
                     const ft = d.Time.split(":");
