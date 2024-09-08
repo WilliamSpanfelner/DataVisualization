@@ -121,12 +121,18 @@
                     // console.log(yScale(new Date(`1970-01-01T20:${mins}:${secs}.000Z`)));
                     return yScale(new Date(`1970-01-01T20:${mins}:${secs}.000Z`));
                 })
-                .attr("r", radius);
+                .attr("r", radius)
+
+                // Add properties to pass to tooltip
+                .attr("data-name", (d) => d.Name)
+                .attr("data-nationality", (d) => d.Nationality)
+                .attr("data-time", (d) => d.Time)
+                .attr("data-doping", (d) => d.Doping);    
 
                 // Call tooltip functions
                 d3.selectAll(".dot")
                 .on("mouseover", showTooltip)
-                .on("mouseout", hideTooltip)
+                .on("mouseout", hideTooltip);
 
             // Add a legend
             svg
