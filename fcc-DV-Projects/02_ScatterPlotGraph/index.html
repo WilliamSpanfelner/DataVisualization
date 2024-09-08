@@ -94,6 +94,15 @@
                .attr("transform", `translate(${padding}, 0)`)
                call(yAxis);
 
+            // Add y-axis label
+            svg.append("g")
+              .attr("transform", "translate(15, 60)")
+              .append("text")
+              .attr("id", "y-label")
+              .attr("text-anchor", "end")
+              .attr("transform", "rotate(-90)")
+              .text("Time in Minutes");
+
             // Add data points
             svg
                 .selectAll("circle")
