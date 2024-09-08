@@ -123,7 +123,10 @@
                 })
                 .attr("r", radius);
 
-
+                // Call tooltip functions
+                d3.selectAll(".dot")
+                .on("mouseover", showTooltip)
+                .on("mouseout", hideTooltip)
 
             // Add a legend
             svg
