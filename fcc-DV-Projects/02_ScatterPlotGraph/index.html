@@ -16,6 +16,22 @@
         const center = 10;
         const radius = 5;
 
+        // Create mouseover function to display tooltip
+        const showTooltip = function(d) {
+            const dotDate = d3.select(this).attr("data-xvalue");
+            const dotTime = d3.select(this).attr("data-time");
+            const dotName = d3.select(this).attr("data-name");
+            const dotNationality = d3.select(this).attr("data-nationality");
+            const dotDoping = d3.select(this).attr("data-doping")
+            return tooltip
+                .attr("id", "tooltip")
+                .attr("data-year", dotDate)
+                .html(`${dotName}: ${dotNationality}<br>Year: ${dotDate}, Time: ${dotTime}<br><br>${dotDoping}`)
+                .style("visibility", "visible")
+                .style("top", `${event.pageY}px`)
+                .style("left", `${event.pageX}px`);
+        }
+
         // Create chart title & subtitle
         const title = d3.select("body").append("h1").attr("id", "title").text("Doping in Professional Bicycle Racing");
         const subtitle = d3.select("body").append("h2").attr("id", "subtitle").text("35 Fastest times up Alpe d'Huez");
@@ -100,7 +116,9 @@
                     // console.log(yScale(new Date(`1970-01-01T20:${mins}:${secs}.000Z`)));
                     return yScale(new Date(`1970-01-01T20:${mins}:${secs}.000Z`));
                 })
-                .attr("r", 5);
+                .attr("r", radius);
+
+
 
             // Add a legend
             svg
