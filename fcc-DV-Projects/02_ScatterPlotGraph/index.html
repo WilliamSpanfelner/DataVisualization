@@ -15,7 +15,11 @@
         // Add center & radius to tidy magic numbers
         const center = 10;
         const radius = 5;
-
+        const tooltip = d3.select("body")
+                          .append("div")
+                          .style("position", "absolute")
+                          .style("visibility", "hidden");
+                          
         // Create mouseover function to display tooltip
         const showTooltip = function(d) {
             const dotDate = d3.select(this).attr("data-xvalue");
