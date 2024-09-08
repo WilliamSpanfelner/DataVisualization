@@ -12,6 +12,10 @@
         const h = 512;
         const padding = 60;
 
+        // Add center & radius to tidy magic numbers
+        const center = 10;
+        const radius = 5;
+
         // Create chart title & subtitle
         const title = d3.select("body").append("h1").attr("id", "title").text("Doping in Professional Bicycle Racing");
         const subtitle = d3.select("body").append("h2").attr("id", "subtitle").text("35 Fastest times up Alpe d'Huez");
@@ -119,9 +123,9 @@
                 .attr("id", "legend-label-1")
                 .attr("transform", "translate(10, 10)")
                 .append("circle")
-                .attr("cx", 10)
-                .attr("cy", 10)
-                .attr("r", 5);  
+                .attr("cx", center)
+                .attr("cy", center)
+                .attr("r", radius);  
 
             svg
                 .select("#legend-label-1")
@@ -134,9 +138,9 @@
                 .attr("id", "legend-label-2")
                 .attr("transform", "translate(10, 40)")
                 .append("circle")
-                .attr("cx", 10)
-                .attr("cy", 10)
-                .attr("r", 5);
+                .attr("cx", center)
+                .attr("cy", center)
+                .attr("r", radius);
 
             svg
                 .select("#legend-label-2")
