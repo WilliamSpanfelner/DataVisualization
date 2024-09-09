@@ -37,6 +37,15 @@
             .attr("width", w)
             .attr("height", h)
             .attr("viewBox", [0, 0, w, h]);
+
+            d3.json(
+                "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json"
+                ).then((data) => {
+  
+                    console.log(data.baseTemperature, data.monthlyVariance);
+
+            }
+
     </script>
 </body>
 </html>
