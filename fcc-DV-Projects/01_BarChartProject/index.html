@@ -81,7 +81,7 @@
             const yAxis = d3.axisLeft(yScale);
             
             // Add x- & y-axes to svg
-            svp.append("g")
+            svg.append("g")
             .attr("id", "x-axis")
             .attr("transform", `translate(0, ${h - padding})`)
             .call(xAxis);
