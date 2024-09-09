@@ -13,6 +13,20 @@
         const h = 512;
         const padding = 60;
 
+        // Create chart title & subtitle
+        const title = d3
+            .select("body")
+            .append("div")
+            .attr("id", "heading")
+            .append("h1")
+            .attr("id", "title")
+            .text("Monthly Global Land-Surface Temperature");
+
+        const subtitle = d3
+            .select("#heading")
+            .append("h3")
+            .attr("id", "subtitle")
+            .text("1753 - 2015: base temperature 8.66℃");
 
     </script>
 </body>
