@@ -63,6 +63,10 @@
                         .attr("transform", `translate(0, ${h - padding})`)
                         .call(xAxis);
 
+                    // Determine y-axis domain
+                    const monthExtents = d3.extent(data.monthlyVariance, d => d.month);
+                    // Convert the month data to corresponding month name
+                    const months = new Set(data.monthlyVariance.map(d => monthNames[d.month]));
             }
 
     </script>
