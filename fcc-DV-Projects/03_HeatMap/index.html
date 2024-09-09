@@ -48,6 +48,12 @@
                     const yearExtents = d3.extent(data.monthlyVariance, d => new Date(`${d.year}`));
                     console.log(yearExtents)
 
+                    // Define the xScale with available data
+                    const xScale = d3
+                        .scaleUtc()
+                        .domain(yearExtents)
+                        .range([padding, w - padding]);
+
             }
 
     </script>
