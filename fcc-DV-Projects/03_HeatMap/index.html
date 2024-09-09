@@ -67,6 +67,12 @@
                     const monthExtents = d3.extent(data.monthlyVariance, d => d.month);
                     // Convert the month data to corresponding month name
                     const months = new Set(data.monthlyVariance.map(d => monthNames[d.month]));
+                    // Set the y-scale
+                    const yScale = d3
+                        .scaleBand()
+                        .domain(months)
+                        .range([padding, h - padding]);
+
             }
 
     </script>
