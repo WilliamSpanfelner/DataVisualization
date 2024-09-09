@@ -17,13 +17,14 @@
         const title = d3
             .select("body")
             .append("div")
-            .attr("id", "heading")
+            .append("section")
+            .append("heading")
             .append("h1")
             .attr("id", "title")
             .text("Monthly Global Land-Surface Temperature");
 
         const subtitle = d3
-            .select("#heading")
+            .select("heading")
             .append("h3")
             .attr("id", "description")
             .text("1753 - 2015: base temperature 8.66℃");
