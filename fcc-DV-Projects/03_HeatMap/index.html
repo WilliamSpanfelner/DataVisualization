@@ -52,7 +52,15 @@
                     const xScale = d3
                         .scaleUtc()
                         .domain(yearExtents)
-                        .range([padding, w - padding]);
+                        .range([padding, w - padding]);  
+                        
+                    // Create & add x & y-axis
+                    const xAxis = d3.axisBottom(xScale);
+                    svg
+                        .append("g")
+                        .attr("id", "x-axis")
+                        .attr("transform", `translate(0, ${h - padding})`)
+                        .call(xAxis);
 
             }
 
