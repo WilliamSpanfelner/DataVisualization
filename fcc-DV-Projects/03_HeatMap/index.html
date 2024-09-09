@@ -73,6 +73,14 @@
                         .domain(months)
                         .range([padding, h - padding]);
 
+                    // Add the yAxis
+                    const yAxis = d3.axisLeft(yScale);
+                    svg
+                        .append("g")
+                        .attr("id", "y-axis")
+                        .attr("transform", `translate(${padding}, 0)`)
+                        .call(yAxis);
+
             }
 
     </script>
