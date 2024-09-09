@@ -9,8 +9,8 @@
 
     <script src="https://d3js.org/d3.v7.min.js">
         // Create SVG area dimensions
-        const w = 1024;
-        const h = 512;
+        const w = 1603;
+        const h = 540;
         const padding = 60;
 
         // Create chart title & description
@@ -29,6 +29,14 @@
             .attr("id", "description")
             .text("1753 - 2015: base temperature 8.66℃");
 
+        // Create svg with defined dimensions
+        const svg = d3
+            .select("body")
+            .append("div")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h)
+            .attr("viewBox", [0, 0, w, h]);
     </script>
 </body>
 </html>
