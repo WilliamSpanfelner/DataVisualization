@@ -44,6 +44,10 @@
   
                     console.log(data.baseTemperature, data.monthlyVariance);
 
+                    // Determine x-axis domain
+                    const yearExtents = d3.extent(data.monthlyVariance, d => d.year);
+                    console.log(yearExtents)
+
             }
 
     </script>
