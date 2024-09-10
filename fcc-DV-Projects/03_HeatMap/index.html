@@ -111,7 +111,37 @@
                         .attr("x", (d) => xScale(new Date(`${d.year}`)))
                         .attr("y", (d) => yScale(monthNames[d.month]))
                         .attr("width", 5)
-                        .attr("height", 33);
+                        .attr("height", 33)
+                        .attr("fill", (d) => {
+                            const temp = baseTemperature + d.variance;
+                            if (temp >= 2.8 && temp < 3.9) {
+                                return colors[0]
+                            } else if (temp >= 3.9 && temp < 5.0) {
+                                return "rgb(116, 173, 209)"
+                            } else if (temp >= 5.0 && temp < 6.1) {
+                                return "rgb(171, 217, 233)"
+                            } else if (temp >= 6.1 && temp < 7.2) {
+                                return "rgb(171, 217, 233)"
+                            } else if (temp >= 7.2 && temp < 8.3) {
+                                return "rgb(255, 255, 191)"
+                            } else if (temp >= 8.3 && temp < 9.5) {
+                                return "rgb(254, 254, 144)"
+                            } else if (temp >= 9.5 && temp < 10.6) {
+                                return "rgb(253, 174, 97)"
+                            } else if (temp >= 10.6 && temp < 11.7) {
+                                return "rgb(244, 109, 67)"
+                            } else if (temp >= 11.7 && temp < 12.8) {
+                                return "rgb(215, 48, 39)"
+                            }
+                            // switch (true) {
+                            //     case temp >= 3.9 && temp < 5.0:
+                            //         return "rgb(116, 173, 209)"
+                            //         break;
+                            
+                            //     default:
+                            //         break;
+                            // }
+                        });
             }
 
     </script>
