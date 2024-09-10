@@ -57,12 +57,20 @@
                         
                     // Create & add x & y-axis
                     const xAxis = d3.axisBottom(xScale);
-                    xAxis.ticks(30);
+                    xAxis.ticks(30);   // This value 30 is adhoc 
                     svg
                         .append("g")
                         .attr("id", "x-axis")
                         .attr("transform", `translate(0, ${h - padding})`)
                         .call(xAxis);
+
+                    // Add x-axis label
+                    svg.append("g")
+                        .attr("transform", `translate(${w / 2}, ${h - padding / 4})`)
+                        .append("text")
+                        .attr("id", "x-label")
+                        .attr("text-anchor", "middle")
+                        .text("Years");
 
                     // Determine y-axis domain
                     const monthExtents = d3.extent(data.monthlyVariance, d => d.month);
@@ -81,6 +89,15 @@
                         .attr("id", "y-axis")
                         .attr("transform", `translate(${padding}, 0)`)
                         .call(yAxis);
+
+                    // Add y-axis-label
+                    svg.append("g")
+                        .attr("transform", `translate(15, ${h / 2})`)
+                        .append("text")
+                        .attr("id", "y-label")
+                        .attr("text-anchor", "middle")
+                        .attr("transform", "rotate(-90)")
+                        .text("Months");
 
             }
 
