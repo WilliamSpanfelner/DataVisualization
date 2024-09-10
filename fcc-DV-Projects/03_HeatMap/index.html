@@ -107,7 +107,11 @@
                         .attr("class", "cell")
                         .attr("data-month", (d) => d.month - 1)
                         .attr("data-year", (d) => d.year)
-                        .attr("data-temp", (d) => baseTemperature + d.variance);
+                        .attr("data-temp", (d) => baseTemperature + d.variance)
+                        .attr("x", (d) => xScale(new Date(`${d.year}`)))
+                        .attr("y", (d) => yScale(monthNames[d.month]))
+                        .attr("width", 5)
+                        .attr("height", 33);
             }
 
     </script>
