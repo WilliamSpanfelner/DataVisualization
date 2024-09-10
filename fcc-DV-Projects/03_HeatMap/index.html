@@ -99,6 +99,12 @@
                         .attr("transform", "rotate(-90)")
                         .text("Months");
 
+                    // Add data points
+                    svg.selectAll("rect")
+                        .data(data.monthlyVariance)
+                        .enter()
+                        .append("rect")
+                        .attr("class", "cell")
             }
 
     </script>
