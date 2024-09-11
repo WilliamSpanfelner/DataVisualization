@@ -28,6 +28,7 @@
 
         const legendWidth = w * 0.27;
         const legendHeight = w * 0.01;
+        const swatchWidth = legendWidth / colors.length;
 
         // Create chart title & description
         const title = d3
@@ -55,6 +56,10 @@
             d3.json(
                 "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json"
                 ).then((data) => {
+
+                    const dpHeight = (h - (2 * padding) - 1) / 12; //datapointHeight = the svg height - 2 x padding (for top & bottom) less 1px for the axis thickness
+                    const numberOfYears = new Set(data.monthlyVariance.map((d) => d.year)).size
+                    const dpWidth = ( w / numberOfYears);
   
                     console.log(data.baseTemperature, data.monthlyVariance);
 
@@ -123,8 +128,8 @@
                         .attr("data-temp", (d) => baseTemperature + d.variance)
                         .attr("x", (d) => xScale(new Date(`${d.year}`)))
                         .attr("y", (d) => yScale(monthNames[d.month]))
-                        .attr("width", 5)
-                        .attr("height", 33)
+                        .attr("width", dpWidth)
+                        .attr("height", dpHeight)
                         .attr("fill", (d) => {
                             const temp = baseTemperature + d.variance;
                             if (temp >= 2.8 && temp < 3.9) {
