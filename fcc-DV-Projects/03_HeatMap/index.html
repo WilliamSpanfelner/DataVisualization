@@ -26,6 +26,9 @@
             "rgb(215, 48, 39)",
         ];
 
+        const legendWidth = w * 0.27;
+        const legendHeight = w * 0.01;
+
         // Create chart title & description
         const title = d3
             .select("body")
@@ -165,8 +168,8 @@
                 .append("g")
                 .attr("transform", `translate(${w * 0.07}, ${h - padding / 2})`)
                 .append("rect")
-                .attr("width", w * 0.27)
-                .attr("height", w * 0.01)
+                .attr("width", legendWidth)
+                .attr("height", legendHeight)
                 .attr("fill", "none")
                 .attr("stroke", "black");
 
