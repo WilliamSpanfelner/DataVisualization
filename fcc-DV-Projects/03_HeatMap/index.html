@@ -152,7 +152,23 @@
                             //         break;
                             // }
                         });
-            }
+            });
+
+            //  Add a legend
+            svg
+                .append("g")
+                .attr("id", "legend")
+                .attr("class", "legend");
+
+            svg  
+                .select("#legend")
+                .append("g")
+                .attr("transform", `translate(${w * 0.07}, ${h - padding / 2})`)
+                .append("rect")
+                .attr("width", w * 0.27)
+                .attr("height", w * 0.01)
+                .attr("fill", "none")
+                .attr("stroke", "black");
 
     </script>
 </body>
