@@ -83,12 +83,13 @@
                         .call(xAxis);
 
                     // Add x-axis label
-                    svg.append("g")
-                        .attr("transform", `translate(${w / 2}, ${h - (padding / 5) * 3})`)
+                    svg
+                        .append("g#x-axis")
                         .append("text")
                         .attr("id", "x-label")
-                        .attr("text-anchor", "middle")
-                        .text("Years");
+                        .text("Years")
+                        .attr("transform", `translate(${w / 2}, ${h - (padding / 5) * 3})`)
+                        .style("fill", "black");
 
                     // Determine y-axis domain
                     const monthExtents = d3.extent(data.monthlyVariance, d => d.month);
