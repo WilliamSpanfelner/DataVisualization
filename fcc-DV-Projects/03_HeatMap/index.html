@@ -11,7 +11,7 @@
         // Create SVG area dimensions
         const w = 1603;
         const h = 540;
-        const padding = 60;
+        const padding = 120;
 
         const monthNames = {1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December"}
         const colors = [
@@ -78,7 +78,7 @@
 
                     // Add x-axis label
                     svg.append("g")
-                        .attr("transform", `translate(${w / 2}, ${h - padding / 4})`)
+                        .attr("transform", `translate(${w / 2}, ${h - (padding / 5) * 3})`)
                         .append("text")
                         .attr("id", "x-label")
                         .attr("text-anchor", "middle")
@@ -104,7 +104,7 @@
 
                     // Add y-axis-label
                     svg.append("g")
-                        .attr("transform", `translate(15, ${h / 2})`)
+                        .attr("transform", `translate(30, ${h / 2})`)
                         .append("text")
                         .attr("id", "y-label")
                         .attr("text-anchor", "middle")
