@@ -110,13 +110,14 @@
                         .call(yAxis);
 
                     // Add y-axis-label
-                    svg.append("g")
-                        .attr("transform", `translate(30, ${h / 2})`)
+                    svg
+                        .select("g#y-axis")
                         .append("text")
                         .attr("id", "y-label")
-                        .attr("text-anchor", "middle")
-                        .attr("transform", "rotate(-90)")
-                        .text("Months");
+                        .text("Months")
+                        .attr("transform", `translate(-${padding * 2 / 3}, ${h / 2})rotate(-90)`)
+                        .style("fill", "black")
+                        .style("text-anchor", "middle");
 
                     // Add data points
                     svg.selectAll("rect")
