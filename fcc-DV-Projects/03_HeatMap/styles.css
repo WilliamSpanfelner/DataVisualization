@@ -1,0 +1,7 @@
+#tooltip {
+    background-color: lightgrey;
+    border-radius: 0.5em;
+    box-shadow: 0 0 10px 2px #838383;
+    padding: 1em;
+    opacity: 0.8;
+  }
