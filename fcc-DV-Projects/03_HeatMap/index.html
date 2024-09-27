@@ -130,7 +130,7 @@
                         .attr("data-temp", (d) => baseTemperature + d.variance)
                         .attr("x", (d) => xScale(new Date(`${d.year}`)))
                         .attr("y", (d) => yScale(monthNames[d.month]))
-                        .attr("width", dpWidth)
+                        .attr("width", dpWidth - 1)
                         .attr("height", dpHeight)
                         .attr("fill", (d) => {
                             const temp = baseTemperature + d.variance;
