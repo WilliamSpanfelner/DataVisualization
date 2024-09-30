@@ -52,6 +52,12 @@
             .attr("width", w)
             .attr("height", h)
             .attr("viewBox", [0, 0, w, h]);
+        
+        // Create tooltip that will display extra information when hovering over a chart datapoint
+        const tooltip = d3.select("body")
+            .append("div")
+            .style("position", "absolute")
+            .style("visibility", "hidden");
 
             d3.json(
                 "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json"
