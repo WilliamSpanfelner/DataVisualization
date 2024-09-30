@@ -66,10 +66,11 @@
             const dpYear = d3.select(this).attr("data-year");
             const dpMonth = d3.select(this).attr("data-month");
             const dpTemp = f(d3.select(this).attr("data-temp"));
+            const dpVariance = f(d3.select(this).attr("data-variance"));
             return tooltip
             .attr("id", "tooltip")
             .attr("data-year", dpYear)
-            .html(`${dpYear} - ${monthNames[dpMonth]}<br>${dpTemp}<br>`)
+            .html(`${dpYear} - ${monthNames[dpMonth]}<br>${dpTemp}<br>${dpVariance}`)
             .style("visibility", "visible")    
             .style("top", `${event.pageY}px`)
             .style("left", `${event.pageX}px`);
