@@ -125,7 +125,7 @@
                         .enter()
                         .append("rect")
                         .attr("class", "cell")
-                        .attr("data-month", (d) => d.month - 1)
+                        .attr("data-month", (d) => d.month)
                         .attr("data-year", (d) => d.year)
                         .attr("data-temp", (d) => baseTemperature + d.variance)
                         .attr("x", (d) => xScale(new Date(`${d.year}`)))
