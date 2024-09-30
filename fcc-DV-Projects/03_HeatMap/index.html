@@ -66,7 +66,8 @@
             const dpYear = d3.select(this).attr("data-year");
             const dpMonth = d3.select(this).attr("data-month");
             const dpTemp = f(d3.select(this).attr("data-temp"));
-            const dpVariance = f(d3.select(this).attr("data-variance"));
+            const variance = f(d3.select(this).attr("data-variance"));
+            const dpVariance = Number(variance) > 0.0 ? `+${variance}` : `${variance}`;
             return tooltip
             .attr("id", "tooltip")
             .attr("data-year", dpYear)
