@@ -59,6 +59,21 @@
             .style("position", "absolute")
             .style("visibility", "hidden");
 
+          // Add Show & Hide functions for tooltip
+        // Create mouseover function to display tooltip
+        const showTooltip = function (d) {
+            const dpYear = d3.select(this).attr("data-year");
+            const dpMonth = d3.select(this).attr("data-month");
+            const dpTemp = d3.select(this).attr("data-temp");
+            return tooltip
+            .attr("id", "tooltip")
+            .attr("data-year", dpYear)
+            .html(`${dpYear} - ${monthNames[dpMonth]}<br>${dpTemp}<br>`)
+            .style("visibility", "visible")    
+            .style("top", `${event.pageY}px`)
+            .style("left", `${event.pageX}px`);
+        };
+
             d3.json(
                 "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json"
                 ).then((data) => {
