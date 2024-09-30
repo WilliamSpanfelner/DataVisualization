@@ -70,7 +70,7 @@
             return tooltip
             .attr("id", "tooltip")
             .attr("data-year", dpYear)
-            .html(`${dpYear} - ${monthNames[dpMonth]}<br>${dpTemp}<br>${dpVariance}`)
+            .html(`${dpYear} - ${monthNames[dpMonth]}<br>${dpTemp}℃<br>${dpVariance}℃`)
             .style("visibility", "visible")    
             .style("top", `${event.pageY}px`)
             .style("left", `${event.pageX}px`);
