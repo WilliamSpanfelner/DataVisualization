@@ -76,6 +76,11 @@
             .style("left", `${event.pageX}px`);
         };
 
+        // Create mouseout function to hide tooltip
+        const hideTooltip = function (d) {
+           tooltip.style("visibility", "hidden");
+        };
+
             d3.json(
                 "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json"
                 ).then((data) => {
